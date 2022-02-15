@@ -1,0 +1,87 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.*;
+public class file {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		FileReader fIile=new FileReader("C:\\Users\\suhas gowda\\OneDrive\\Desktop\\new 1.txt");
+
+		BufferedReader br=new BufferedReader(fIile);
+		String str;
+		int n=0;
+		while((str=br.readLine())!=null)
+		{
+			
+			if(str.contains("Number of employees:"))
+			{ String l[]=str.split(" ");
+			String intr=l[l.length-1];
+			n=Integer.parseInt(intr);
+				
+			
+				
+			}
+		}
+		
+		int count=0;
+		int max=Integer.MAX_VALUE;
+		int diff=Integer.MAX_VALUE;
+		int index=0;
+		
+		String ans[]= {"MI Band: 999","Sandwich Toaster: 2195","Cult Pass: 2799","Scale: 4999","Fitbit Plus: 7980","Microwave Oven: 9800"
+				,"Alexa: 9999","Digital Camera: 11101","IPods: 22349","Macbook Pro: 229900"};
+		int arr[]=new int[] {999,2195,2799,4999,7980,9800,9999, 11101,22349,229900};
+		for(int i=0;i<arr.length-n+1;i++)
+		{
+			
+			int i1=i;
+			int i2=0;
+			
+			for(int j=i;j<=arr.length;j++)
+			{
+				count++;
+				if(count==n+1)
+				{
+					i2=arr[j-1];
+					break;
+				}
+				
+				
+			}
+		
+			count=0;
+			diff=i2-arr[i1];
+			if(diff<max)
+			{
+				max=diff;
+				index=i;
+				
+			}
+			
+			
+			
+			
+		}
+		
+		System.out.println("The goodies selected for distribution are :");
+		
+		int f=0;
+		for(int i=index;i<ans.length;i++)
+		{
+			f++;
+			if(f==n+1)
+			{
+			break;	
+			}
+			System.out.println(ans[i]);
+		}
+		System.out.println("And the difference between the choosen with highest price and the lowest price is "+max);
+		
+		
+		}
+
+	}
+   
